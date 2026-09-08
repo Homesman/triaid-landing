@@ -11,6 +11,7 @@
   --surface:       oklch(99.3% 0.003 158);
   --surface-sunk:  oklch(94.6% 0.012 156);
   --ink-panel:     oklch(23% 0.035 168);
+  --ink-deep:      oklch(28.5% 0.034 165);
 
   /* text */
   --fg:            oklch(20% 0.024 160);
@@ -21,8 +22,6 @@
   /* lines */
   --border:        oklch(90.5% 0.012 158);
   --border-strong: oklch(81% 0.018 156);
-  --hairline-dark: rgba(234, 255, 243, 0.09);
-  --line-on-dark:  rgba(234, 255, 243, 0.1);
   --line-on-dark-btn: rgba(234, 255, 243, 0.28);
   /* Single page-wide chart-paper grid (body). One grid, one phase —
      never layer a second same-pitch grid on top of it. */
@@ -131,20 +130,6 @@ ul, ol { list-style: none; }
   transform: translateY(-1px);
 }
 
-.btn-invert {
-  background: transparent;
-  color: var(--fg-on-dark);
-  border-color: var(--line-on-dark-btn);
-  font: 500 15.5px/1 var(--font-mono);
-  letter-spacing: 0.02em;
-  min-height: 54px;
-}
-.btn-invert:hover {
-  background: var(--fg-on-dark);
-  color: var(--ink-panel);
-  transform: translateY(-1px);
-}
-
 /* ---------- Skip link ---------- */
 .skip-link {
   position: fixed;
@@ -173,14 +158,12 @@ ul, ol { list-style: none; }
 }
 
 .nav-inner {
-  max-width: var(--container);
-  margin-inline: auto;
   padding-inline: clamp(20px, 5vw, 40px);
   height: var(--nav-h);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: flex-start;
+  gap: 32px;
 }
 
 .brand {
@@ -221,6 +204,7 @@ ul, ol { list-style: none; }
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: auto;
 }
 
 .lang-toggle {
@@ -249,6 +233,77 @@ ul, ol { list-style: none; }
 .lang-btn.is-active {
   background: var(--ink-panel);
   color: var(--fg-on-dark);
+}
+
+/* Auth buttons — compact pills sized for the 50px bar */
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 17px;
+  border-radius: 999px;
+  font: 510 13.5px/1 var(--font-body);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 200ms var(--ease-out), border-color 200ms var(--ease-out),
+              color 200ms var(--ease-out), transform 200ms var(--ease-out),
+              box-shadow 200ms var(--ease-out);
+}
+.btn-login {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--border-strong);
+}
+.btn-login:hover {
+  border-color: var(--accent-ink);
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+.btn-register {
+  background: var(--accent-ink);
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(16, 46, 36, 0.18);
+}
+.btn-register:hover {
+  background: oklch(38% 0.105 152);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(16, 46, 36, 0.16);
+}
+.btn-register:active { transform: translateY(0); }
+
+/* Auth buttons inside the mobile panel */
+.mobile-auth {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 14px clamp(20px, 5vw, 40px) 16px;
+  border-top: 1px solid var(--border);
+}
+.mobile-auth a {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  border-radius: 12px;
+  font: 510 14px/1 var(--font-body);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.mobile-auth .mobile-login {
+  border: 1px solid var(--border-strong);
+  color: var(--fg);
+}
+.mobile-auth .mobile-register {
+  background: var(--accent-ink);
+  color: #fff;
 }
 
 .nav-burger {
@@ -354,11 +409,11 @@ ul, ol { list-style: none; }
 .heartbeat {
   display: grid;
   place-items: center;
-  min-height: 372px;
+  min-height: 430px;
 }
 .heart-wrap {
   position: relative;
-  width: clamp(190px, 19vw, 262px);
+  width: clamp(232px, 23vw, 320px);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -431,8 +486,7 @@ ul, ol { list-style: none; }
 /* ---------- Section dividers ----------
    A single fading hairline at each section boundary — quiet, no motif.
    The old tick ruler and the PQRST rhythm strip are both gone. */
-.section::before,
-.site-footer::before {
+.section::before {
   content: "";
   position: absolute;
   top: 0;
@@ -446,22 +500,11 @@ ul, ol { list-style: none; }
     transparent);
 }
 
-.section-dark::before {
-  background: linear-gradient(90deg,
-    transparent,
-    var(--hairline-dark) 16%,
-    var(--hairline-dark) 84%,
-    transparent);
-}
 
 .section-sunk {
   background: var(--surface-sunk);
 }
 
-.section-dark {
-  background: var(--ink-panel);
-  color: var(--fg-on-dark);
-}
 
 .section-head { margin-bottom: 18px; }
 
@@ -474,14 +517,12 @@ ul, ol { list-style: none; }
   text-transform: uppercase;
   color: var(--muted);
 }
-.eyebrow-dark { color: var(--muted-on-dark); }
 .eyebrow-dot {
   width: 7px;
   height: 7px;
   background: var(--accent-ink);
   flex-shrink: 0;
 }
-.eyebrow-dark .eyebrow-dot { background: var(--accent); }
 
 .section-title {
   font: 600 clamp(27px, 3.4vw, 40px)/1.14 var(--font-display);
@@ -568,6 +609,45 @@ ul, ol { list-style: none; }
 .feature-card:nth-child(4) { transition-delay: 80ms; }
 .feature-card:nth-child(5) { transition-delay: 140ms; }
 
+/* ---------- Team ---------- */
+.team-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-top: 36px;
+}
+.member-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 22px 18px 20px;
+  display: grid;
+  gap: 9px;
+  justify-items: start;
+  align-content: start;
+}
+.member-avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font: 500 13.5px/1 var(--font-mono);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.member-card h3 {
+  font: 600 15.5px/1.3 var(--font-display);
+  letter-spacing: -0.005em;
+}
+.member-card:nth-child(2) { transition-delay: 60ms; }
+.member-card:nth-child(3) { transition-delay: 120ms; }
+.member-card:nth-child(4) { transition-delay: 180ms; }
+.member-card:nth-child(5) { transition-delay: 240ms; }
+
 /* ---------- Contact ---------- */
 .contact-wrap {
   display: grid;
@@ -575,21 +655,24 @@ ul, ol { list-style: none; }
   gap: 18px;
 }
 
-.contact-wrap .section-title { color: var(--fg-on-dark); max-width: 20ch; }
+.contact-wrap .section-title { max-width: 20ch; }
 
 .contact-text {
-  color: var(--muted-on-dark);
+  color: var(--muted);
   font-size: 17px;
   line-height: 1.66;
   max-width: 52ch;
 }
 
-.contact-wrap .btn-invert { margin-top: 10px; }
+.contact-wrap .btn-primary { margin-top: 10px; }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (deepest ink layer — the instrument base) ----------
+   The only dark slab at the end of the page: every section above it is
+   paper, so the light→ink seam IS the divider. */
 .site-footer {
-  position: relative;
-  padding-block: 38px;
+  padding-block: 46px 42px;
+  background: var(--ink-deep);
+  color: var(--fg-on-dark);
 }
 
 .footer-grid {
@@ -611,8 +694,20 @@ ul, ol { list-style: none; }
 .footer-copy {
   margin-top: 10px;
   font-size: 13.5px;
-  color: var(--muted);
+  color: var(--muted-on-dark);
   max-width: 46ch;
+}
+
+.site-footer .brand-name {
+  color: var(--fg-on-dark);
+}
+
+.site-footer .brand-bg {
+  fill: var(--accent-ink);
+}
+
+.site-footer .brand-pulse {
+  stroke: var(--pulse-on-ink);
 }
 
 .footer-links {
@@ -623,15 +718,15 @@ ul, ol { list-style: none; }
 }
 .footer-links a {
   font-size: 14.5px;
-  color: var(--muted);
+  color: var(--muted-on-dark);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 4px;
   transition: color 200ms var(--ease-out), text-decoration-color 200ms var(--ease-out);
 }
 .footer-links a:hover {
-  color: var(--fg);
-  text-decoration-color: var(--border-strong);
+  color: var(--fg-on-dark);
+  text-decoration-color: var(--line-on-dark-btn);
 }
 
 /* ---------- Terms ---------- */
@@ -683,15 +778,29 @@ ul, ol { list-style: none; }
 .reveal.in { opacity: 1; transform: none; }
 
 /* ---------- Responsive ---------- */
+/* Tablet (641–1024px): el hero mantiene 2 columnas — el corazón queda a la
+   derecha del copy. El colapso a 1 columna pasa recién en móvil (≤640px). */
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .hero-title { max-width: 18ch; }
+  .hero-grid { gap: clamp(32px, 5vw, 56px); }
+  .heartbeat { min-height: 390px; }
 }
 
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .nav-burger { display: block; }
-  .mobile-panel { display: block; }
+  /* Dropdown: absoluto bajo la barra para que cerrado no ocupe layout
+     (antes sumaba ~290px fantasma y el nav medía 340px en tablet/móvil). */
+  .mobile-panel {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: calc(100dvh - var(--nav-h));
+    overflow: auto;
+    box-shadow: 0 18px 40px color-mix(in oklab, var(--fg) 14%, transparent);
+  }
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
 
   .feature-card,
   .feature-card:nth-child(4),
@@ -710,11 +819,18 @@ ul, ol { list-style: none; }
 
 @media (max-width: 640px) {
   .hero { padding-top: 40px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero-title { max-width: 18ch; }
   .hero-ctas { flex-direction: column; align-items: stretch; }
   .hero-ctas .btn { width: 100%; }
 
-  .heartbeat { min-height: 300px; }
-  .heart-wrap { width: clamp(168px, 52vw, 220px); }
+  .nav-inner { gap: 14px; }
+  .nav-auth .btn-login { display: none; }
+  .btn-register { padding: 0 14px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .heartbeat { min-height: 350px; }
+  .heart-wrap { width: clamp(200px, 56vw, 260px); }
 
   .feature-card,
   .feature-card:nth-child(4),
@@ -731,5 +847,5 @@ ul, ol { list-style: none; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .heart-shape, .heart-glow, .heart-ring { animation: none; }
-  .btn, .feature-card, .nav-links a, .footer-links a { transition: none; }
+  .btn, .feature-card, .member-card, .btn-nav, .mobile-auth a, .nav-links a, .footer-links a { transition: none; }
 }

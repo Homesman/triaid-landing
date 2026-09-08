@@ -14,6 +14,9 @@ const I18N = {
     "nav.about": "About",
     "nav.features": "Features",
     "nav.contact": "Contact",
+    "nav.team": "Team",
+    "auth.login": "Log in",
+    "auth.register": "Register",
 
     "hero.h1": "From vital signs to the right specialty — automatically.",
     "hero.text": "Tri-Aid registers patients, captures vital signs automatically from medical measurement instruments, classifies priority and routes each patient to the right specialty — with instant alerts when any value is out of range.",
@@ -36,6 +39,8 @@ const I18N = {
     "f4.x": "Instant notifications when any value exceeds the habitual range, so critical patients escalate without delay.",
     "f5.t": "Specialty assignment",
     "f5.x": "Data-driven routing sends every patient to the corresponding medical specialty, reducing wrong referrals and rework.",
+
+    "team.title": "The SoliDevs team",
 
 
 
@@ -70,6 +75,9 @@ const I18N = {
     "nav.about": "Nosotros",
     "nav.features": "Funciones",
     "nav.contact": "Contacto",
+    "nav.team": "Equipo",
+    "auth.login": "Iniciar sesión",
+    "auth.register": "Registrarse",
 
     "hero.h1": "Del instrumento a la especialidad correcta — automáticamente.",
     "hero.text": "Tri-Aid registra a los pacientes, captura automáticamente sus signos vitales desde los instrumentos de medición, clasifica la prioridad y deriva a cada paciente a la especialidad correcta — con alertas inmediatas cuando un valor está fuera de rango.",
@@ -92,6 +100,8 @@ const I18N = {
     "f4.x": "Notificaciones inmediatas cuando un valor excede el rango habitual, para escalar a los pacientes críticos sin demora.",
     "f5.t": "Asignación a especialidades",
     "f5.x": "La derivación guiada por datos envía a cada paciente a la especialidad médica correspondiente, reduciendo traslados equivocados.",
+
+    "team.title": "El equipo de SoliDevs",
 
 
 

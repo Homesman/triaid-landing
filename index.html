@@ -28,10 +28,15 @@
         <a href="#top" data-i18n="nav.home">Home</a>
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#team" data-i18n="nav.team">Team</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
+        <div class="nav-auth">
+          <a class="btn-nav btn-login" href="#contact" data-i18n="auth.login">Log in</a>
+          <a class="btn-nav btn-register" href="#contact" data-i18n="auth.register">Register</a>
+        </div>
         <div class="lang-toggle" role="group" aria-label="Language / Idioma">
           <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="true">EN</button>
           <button type="button" class="lang-btn" data-lang-btn="es" aria-pressed="false">ES</button>
@@ -47,7 +52,12 @@
         <a href="#top" data-i18n="nav.home">Home</a>
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#team" data-i18n="nav.team">Team</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <div class="mobile-auth">
+          <a class="mobile-login" href="#contact" data-i18n="auth.login">Log in</a>
+          <a class="mobile-register" href="#contact" data-i18n="auth.register">Register</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -146,13 +156,46 @@
       </div>
     </section>
 
+    <!-- ================= TEAM ================= -->
+    <section class="section" id="team" data-od-id="team">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><i class="eyebrow-dot" aria-hidden="true"></i><span data-i18n="nav.team">Team</span></span>
+        </div>
+        <h2 class="section-title reveal" data-i18n="team.title" data-od-id="team-title">The SoliDevs team</h2>
+
+        <ul class="team-grid">
+          <li class="member-card reveal" data-od-id="member-hernan-huayta">
+            <span class="member-avatar" aria-hidden="true">HH</span>
+            <h3>Hernan Huayta Fuentes</h3>
+          </li>
+          <li class="member-card reveal" data-od-id="member-mitchell-alva">
+            <span class="member-avatar" aria-hidden="true">MA</span>
+            <h3>Mitchell Alva Ayala</h3>
+          </li>
+          <li class="member-card reveal" data-od-id="member-nicolas-castro">
+            <span class="member-avatar" aria-hidden="true">NC</span>
+            <h3>Nicolas Castro Solorza</h3>
+          </li>
+          <li class="member-card reveal" data-od-id="member-mauricio-diaz">
+            <span class="member-avatar" aria-hidden="true">MD</span>
+            <h3>Mauricio Diaz Nuñez</h3>
+          </li>
+          <li class="member-card reveal" data-od-id="member-enrique-ochoa">
+            <span class="member-avatar" aria-hidden="true">EO</span>
+            <h3>Enrique Ochoa Prado</h3>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- ================= CONTACT ================= -->
-    <section class="section section-dark" id="contact" data-od-id="contact">
+    <section class="section" id="contact" data-od-id="contact">
       <div class="container contact-wrap reveal">
-        <span class="eyebrow eyebrow-dark"><i class="eyebrow-dot" aria-hidden="true"></i><span data-i18n="nav.contact">Contact</span></span>
+        <span class="eyebrow"><i class="eyebrow-dot" aria-hidden="true"></i><span data-i18n="nav.contact">Contact</span></span>
         <h2 class="section-title" data-i18n="contact.title" data-od-id="contact-title">Bring Tri-Aid to your emergency room</h2>
         <p class="contact-text" data-i18n="contact.text">Hospitals, clinics and health institutions: request a live demo and measure the difference in your own triage room.</p>
-        <a class="btn btn-invert" href="mailto:contact@solidevs.pe" data-od-id="contact-email">contact@solidevs.pe</a>
+        <a class="btn btn-primary" href="mailto:contact@solidevs.pe" data-od-id="contact-email">contact@solidevs.pe</a>
       </div>
     </section>
 
