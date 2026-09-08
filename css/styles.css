@@ -7,21 +7,21 @@
 /* ---------- Tokens ---------- */
 :root {
   /* surfaces */
-  --bg:            oklch(96.6% 0.009 158);
-  --surface:       oklch(99.3% 0.003 158);
-  --surface-sunk:  oklch(94.6% 0.012 156);
-  --ink-panel:     oklch(23% 0.035 168);
-  --ink-deep:      oklch(28.5% 0.034 165);
+  --bg:            #EFF6F1;
+  --surface:       #FBFDFC;
+  --surface-sunk:  #E7F0EA;
+  --ink-panel:     #0A221A;
+  --ink-deep:      #193026;
 
   /* text */
-  --fg:            oklch(20% 0.024 160);
-  --muted:         oklch(45% 0.022 158);
-  --fg-on-dark:    oklch(93% 0.015 155);
-  --muted-on-dark: oklch(74% 0.028 155);
+  --fg:            #0C1912;
+  --muted:         #4B5951;
+  --fg-on-dark:    #E0EBE3;
+  --muted-on-dark: #9EB0A3;
 
   /* lines */
-  --border:        oklch(90.5% 0.012 158);
-  --border-strong: oklch(81% 0.018 156);
+  --border:        #D9E2DD;
+  --border-strong: #B8C5BC;
   --line-on-dark-btn: rgba(234, 255, 243, 0.28);
   /* Single page-wide chart-paper grid (body). One grid, one phase —
      never layer a second same-pitch grid on top of it. */
@@ -29,12 +29,12 @@
   --pulse-on-ink:  #eafff3;
 
   /* accent — ECG green */
-  --accent:        oklch(72% 0.17 152);   /* trace on dark, fills */
-  --accent-ink:    oklch(45% 0.115 152);  /* text-safe / buttons */
-  --accent-soft:   oklch(93% 0.045 152);
+  --accent:        #35C26D;   /* trace on dark, fills */
+  --accent-ink:    #086733;  /* text-safe / buttons */
+  --accent-soft:   #D3F1D9;
 
   /* semantic — triage scale (used sparingly) */
-  --info:          oklch(70% 0.11 240);
+  --info:          #58A7DC;
 
   /* type */
   --font-display: 'Space Grotesk', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -114,7 +114,7 @@ ul, ol { list-style: none; }
   box-shadow: 0 1px 2px rgba(16, 46, 36, 0.18);
 }
 .btn-primary:hover {
-  background: oklch(38% 0.105 152);
+  background: #005124;
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(16, 46, 36, 0.16);
 }
@@ -272,7 +272,7 @@ ul, ol { list-style: none; }
   box-shadow: 0 1px 2px rgba(16, 46, 36, 0.18);
 }
 .btn-register:hover {
-  background: oklch(38% 0.105 152);
+  background: #005124;
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(16, 46, 36, 0.16);
 }
@@ -426,7 +426,7 @@ ul, ol { list-style: none; }
   overflow: visible;
   transform-origin: 50% 46%;
   animation: heart-beat 0.94s infinite;
-  filter: drop-shadow(0 16px 26px color-mix(in oklab, var(--accent-ink) 38%, transparent));
+  filter: drop-shadow(0 16px 26px rgba(8, 103, 51, 0.38));
 }
 .heart-grad-a { stop-color: var(--accent); }
 .heart-grad-b { stop-color: var(--accent-ink); }
@@ -439,8 +439,8 @@ ul, ol { list-style: none; }
   opacity: 0.5;
   background: radial-gradient(
     circle,
-    color-mix(in oklab, var(--accent) 24%, transparent) 0%,
-    color-mix(in oklab, var(--accent) 10%, transparent) 46%,
+    rgba(53, 194, 109, 0.24) 0%,
+    rgba(53, 194, 109, 0.10) 46%,
     transparent 72%
   );
   animation: heart-glow 0.94s infinite;
@@ -451,7 +451,7 @@ ul, ol { list-style: none; }
   position: absolute;
   inset: 2%;
   border-radius: 50%;
-  border: 1.5px solid color-mix(in oklab, var(--accent) 55%, transparent);
+  border: 1.5px solid rgba(53, 194, 109, 0.55);
   opacity: 0;
   animation: heart-ripple 0.94s infinite;
 }
@@ -798,7 +798,7 @@ ul, ol { list-style: none; }
     right: 0;
     max-height: calc(100dvh - var(--nav-h));
     overflow: auto;
-    box-shadow: 0 18px 40px color-mix(in oklab, var(--fg) 14%, transparent);
+    box-shadow: 0 18px 40px rgba(12, 25, 18, 0.14);
   }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
 
